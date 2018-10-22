@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="d-flex justify-content-center">
             <sum></sum>
         </div>
     </div>
@@ -11,3 +11,6 @@
         name: 'app',
     }
 </script>
+
+<style lang="scss" scoped>
+</style>

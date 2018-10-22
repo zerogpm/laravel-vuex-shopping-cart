@@ -5,11 +5,15 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: "AddNumber",
     methods: {
+      ...mapActions({
+          fetchNumber : 'fetchNumber'
+      }),
       add () {
-        this.$store.dispatch('fetchNumber', {
+        this.fetchNumber({
             min: 1,
             max: 100
         })
@@ -19,5 +23,4 @@
 </script>
 
 <style scoped>
-
 </style>

@@ -7,16 +7,14 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     export default {
         name: "Sum",
         computed: {
-            sum() {
-                return this.$store.getters.sum;
-            },
-            randomNumberCount()
-            {
-                return this.$store.getters.randomNumberCount;
-            }
+          ...mapGetters({
+            sum: 'sum',
+            randomNumberCount : 'randomNumberCount'
+          })
         }
     }
 </script>
