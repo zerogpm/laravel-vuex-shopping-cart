@@ -1,3 +1,3 @@
 export default {
-    number: 10
+    numbers: [10,50,1]
 }
