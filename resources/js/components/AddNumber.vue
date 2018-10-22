@@ -9,7 +9,7 @@
     name: "AddNumber",
     methods: {
       add () {
-        this.$store.commit('addRandomNumber', {
+        this.$store.dispatch('fetchNumber', {
             min: 1,
             max: 100
         })

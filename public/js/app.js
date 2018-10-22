@@ -25314,7 +25314,6 @@ var app = new Vue({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__getters__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mutations__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__actions__);
 
 
 
@@ -26579,19 +26578,26 @@ var randomNumberCount = function randomNumberCount(state) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRandomNumber", function() { return addRandomNumber; });
-var addRandomNumber = function addRandomNumber(state, _ref) {
-    var min = _ref.min,
-        max = _ref.max;
-
-    var number = Math.floor(Math.random() * (max - min) + min);
+var addRandomNumber = function addRandomNumber(state, number) {
     state.numbers.push(number);
 };
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchNumber", function() { return fetchNumber; });
+var fetchNumber = function fetchNumber(_ref, _ref2) {
+    var commit = _ref.commit;
+    var min = _ref2.min,
+        max = _ref2.max;
 
+    axios.get('http://192.168.2.73:8080/number?min=' + min + '&max=' + max).then(function (response) {
+        commit('addRandomNumber', response.data.number);
+    });
+};
 
 /***/ }),
 /* 25 */
@@ -48694,6 +48700,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'app'
@@ -48707,7 +48715,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [_c("sum")], 1)
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [_c("sum")], 1)
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49165,7 +49175,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: "AddNumber",
   methods: {
     add: function add() {
-      this.$store.commit('addRandomNumber', {
+      this.$store.dispatch('fetchNumber', {
         min: 1,
         max: 100
       });

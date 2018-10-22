@@ -1,6 +1,8 @@
 <template>
-    <div class="container">
-        <sum></sum>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <sum></sum>
+        </div>
     </div>
 </template>
 
