@@ -19,6 +19,7 @@ window.Vue = require('vue');
 Vue.component('app', require('./App.vue'));
 Vue.component('sum', require('./components/Sum.vue'));
 Vue.component('number', require('./components/Number.vue'));
+Vue.component('add-number', require('./components/AddNumber'));
 
 const app = new Vue({
     el: '#app',
