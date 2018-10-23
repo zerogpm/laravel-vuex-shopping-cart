@@ -16,9 +16,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('app', require('./App.vue'));
-Vue.component('sum', require('./components/Sum.vue'));
-Vue.component('number', require('./components/Number.vue'));
+Vue.component('app', require('./App'));
+Vue.component('shopping', require('./Shopping'));
+Vue.component('sum', require('./components/Sum'));
+Vue.component('number', require('./components/Number'));
 Vue.component('add-number', require('./components/AddNumber'));
 
 const app = new Vue({
