@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/number', 'NumberController@index');
+
+Route::get('/products', 'ProductController@index');

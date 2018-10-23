@@ -1,4 +1,4 @@
-import store from './store'
+import store from './components/shop/store'
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -21,6 +21,9 @@ Vue.component('shopping', require('./Shopping'));
 Vue.component('sum', require('./components/Sum'));
 Vue.component('number', require('./components/Number'));
 Vue.component('add-number', require('./components/AddNumber'));
+Vue.component('products', require('./components/shop/products'));
+Vue.component('product', require('./components/shop/product'));
+Vue.component('mini-cart', require('./components/shop/MiniCart'));
 
 const app = new Vue({
     el: '#app',
