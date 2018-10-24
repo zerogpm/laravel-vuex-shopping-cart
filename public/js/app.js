@@ -26576,11 +26576,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "products", function() { return products; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cart", function() { return cart; });
 var products = function products(state) {
   return state.products;
 };
 
 // cart
+var cart = function cart(state) {
+  return state.cart;
+};
 
 // cart item count
 
@@ -26593,11 +26597,15 @@ var products = function products(state) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCarts", function() { return setCarts; });
 var setProducts = function setProducts(state, products) {
     state.products = products;
 };
 
 // set cart
+var setCarts = function setCarts(state, cart) {
+    state.cart = cart;
+};
 
 // clear cart
 
@@ -26612,30 +26620,38 @@ var setProducts = function setProducts(state, products) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProducts", function() { return getProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCart", function() { return getCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addProductToCart", function() { return addProductToCart; });
 var getProducts = function getProducts(_ref) {
-  var commit = _ref.commit;
+    var commit = _ref.commit;
 
-  return axios.get('http://192.168.2.73:8080/products').then(function (response) {
-    commit('setProducts', response.data);
-    return Promise.resolve();
-  });
+    return axios.get('http://192.168.2.73:8080/products').then(function (response) {
+        commit('setProducts', response.data);
+        return Promise.resolve();
+    });
 };
 
 // Get cart
+var getCart = function getCart(_ref2) {
+    var commit = _ref2.commit;
 
-// Add a prodcut to our cart
-var addProductToCart = function addProductToCart(_ref2, _ref3) {
-  var commit = _ref2.commit;
-  var id = _ref3.id;
+    return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
+        commit('setCarts', response.data);
+        return Promise.resolve();
+    });
+};
 
-  return axios.post('http://192.168.2.73:8080/api/cart', {
-    product_id: id
-  }).then(function (response) {
-    console.log(response);
-  }).catch(function (error) {
-    console.log(error);
-  });
+var addProductToCart = function addProductToCart(_ref3, _ref4) {
+    var commit = _ref3.commit;
+    var id = _ref4.id;
+
+    return axios.post('http://192.168.2.73:8080/api/cart', {
+        product_id: id
+    }).then(function (response) {
+        console.log(response);
+    }).catch(function (error) {
+        console.log(error);
+    });
 };
 
 // remove a product from our cart
@@ -49963,6 +49979,9 @@ exports.push([module.i, "\n.links[data-v-b66a9a16] {\n    text-decoration: none;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -49988,8 +50007,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "MiniCart"
+  name: "MiniCart",
+  methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
+    getCart: 'getCart'
+  })),
+  mounted: function mounted() {
+    this.getCart();
+  }
 });
 
 /***/ }),

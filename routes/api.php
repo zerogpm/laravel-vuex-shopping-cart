@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('/cart', 'CartController@store');
+Route::get('/cart', 'CartController@index');

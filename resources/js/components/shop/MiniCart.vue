@@ -23,8 +23,17 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
   export default {
-    name: "MiniCart"
+    name: "MiniCart",
+    methods: {
+      ...mapActions({
+        getCart: 'getCart'
+      })
+    },
+    mounted() {
+      this.getCart();
+    }
   }
 </script>
 

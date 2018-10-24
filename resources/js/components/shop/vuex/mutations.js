@@ -3,6 +3,9 @@ export const setProducts = (state, products) => {
 }
 
 // set cart
+export const setCarts = (state, cart) => {
+    state.cart = cart
+};
 
 // clear cart
 

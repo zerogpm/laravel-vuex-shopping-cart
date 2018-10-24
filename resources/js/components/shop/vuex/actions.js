@@ -7,8 +7,13 @@ export const getProducts = ({commit}) => {
 
 
 // Get cart
+export const getCart = ({commit}) => {
+  return axios.get('http://192.168.2.73:8080/api/cart').then((response) => {
+      commit('setCarts', response.data);
+      return Promise.resolve()
+  })
+};
 
-// Add a prodcut to our cart
 export const addProductToCart = ({commit}, { id }) => {
   return axios.post('http://192.168.2.73:8080/api/cart', {
     product_id : id
@@ -17,7 +22,7 @@ export const addProductToCart = ({commit}, { id }) => {
   }).catch((error) => {
       console.log(error)
   })
-}
+};
 
 // remove a product from our cart
 

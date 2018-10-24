@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        return Cart::with('product')->orderBy('created_at', 'desc')->get();
+    }
+
     public function store(Request $request)
     {
         $item = Cart::where('product_id', $request->product_id);
