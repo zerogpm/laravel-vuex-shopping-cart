@@ -4,3 +4,11 @@ export const getProducts = ({commit}) => {
         return Promise.resolve()
     })
 }
+
+// Get cart
+
+// Add a prodcut to our cart
+
+// remove a product from our cart
+
+// remove all prodcuts from our cart

@@ -49174,6 +49174,12 @@ var products = function products(state) {
   return state.products;
 };
 
+// cart
+
+// cart item count
+
+// cart total
+
 /***/ }),
 /* 96 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -49184,6 +49190,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var setProducts = function setProducts(state, products) {
     state.products = products;
 };
+
+// set cart
+
+// clear cart
+
+// remove from cart
+
+// append to cart
 
 /***/ }),
 /* 97 */
@@ -49200,6 +49214,14 @@ var getProducts = function getProducts(_ref) {
       return Promise.resolve();
    });
 };
+
+// Get cart
+
+// Add a prodcut to our cart
+
+// remove a product from our cart
+
+// remove all prodcuts from our cart
 
 /***/ }),
 /* 98 */
