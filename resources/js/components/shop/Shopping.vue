@@ -8,7 +8,6 @@
             <div class="col-lg-10">
                 <products></products>
             </div>
-
         </div>
     </div>
 </template>

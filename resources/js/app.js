@@ -1,4 +1,4 @@
-import store from './components/shop/store'
+import store from './vuex'
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -16,11 +16,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('app', require('./App'));
-Vue.component('shopping', require('./Shopping'));
-Vue.component('sum', require('./components/Sum'));
-Vue.component('number', require('./components/Number'));
-Vue.component('add-number', require('./components/AddNumber'));
+Vue.component('app', require('./components/addNumber/App'));
+Vue.component('shopping', require('./components/shop/Shopping'));
+Vue.component('sum', require('./components/addNumber/Sum'));
+Vue.component('number', require('./components/addNumber/Number'));
+Vue.component('add-number', require('./components/addNumber/AddNumber'));
 Vue.component('products', require('./components/shop/products'));
 Vue.component('product', require('./components/shop/product'));
 Vue.component('mini-cart', require('./components/shop/MiniCart'));
