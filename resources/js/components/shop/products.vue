@@ -1,13 +1,18 @@
 <template>
     <div class="row mt-5">
-        <product></product>
+        <product v-for="product in products" :product="product" :key="product.id"></product>
     </div>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: "products",
+    computed: {
+      ...mapGetters({
+          products: 'products'
+      })
+    },
     methods: {
       ...mapActions({
           getProducts: 'getProducts'
