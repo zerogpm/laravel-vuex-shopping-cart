@@ -42,4 +42,9 @@ class CartController extends Controller
 
         return response(null, 200);
     }
+
+    public function deleteAll()
+    {
+        Cart::truncate();
+    }
 }

@@ -8,6 +8,9 @@ export const setCarts = (state, cart) => {
 };
 
 // clear cart
+export const removeAllProductsFromCart = (state) => {
+    state.cart = [];
+};
 
 // remove from cart
 export const removeFromCart = (state, id) => {
@@ -19,7 +22,7 @@ export const removeFromCart = (state, id) => {
       existing.quantity--
     } else {
       state.cart = state.cart.filter((item) => {
-          return item.product_id !== id;
+          return item.product.id !== id;
       })
     }
 };

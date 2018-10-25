@@ -12,7 +12,7 @@
                 </div>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span class="badge badge-primary badge-pill"><a href="#" class="links">Clear</a></span>
+                <span class="badge badge-primary badge-pill"><a href="#" class="links" @click.prevent="removeAllProducts">Clear</a></span>
             </li>
             <li class="list-group-item list-group-item-primary">
                 {{ cartCount }} item in cart ( ${{ cartTotalPrice }} )
@@ -29,7 +29,8 @@
     methods: {
       ...mapActions({
         getCart: 'getCart',
-        removeProductFromCart: 'removeProductFromCart'
+        removeProductFromCart: 'removeProductFromCart',
+        removeAllProducts: 'removeAllProducts'
       }),
       removeProduct(id) {
         this.removeProductFromCart({ id })
