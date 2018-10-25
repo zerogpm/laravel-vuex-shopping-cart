@@ -25,7 +25,6 @@
         addProductToCart : 'addProductToCart'
       }),
       addItemToCart() {
-        console.log(this.product)
         this.addProductToCart(this.product)
       }
     }

@@ -26597,7 +26597,7 @@ var cartCount = function cartCount(state) {
 var cartTotalPrice = function cartTotalPrice(state) {
   return state.cart.reduce(function (sum, number) {
     return sum + number.product.price * number.quantity;
-  }, 0);
+  }, 0).toFixed(2);
 };
 
 /***/ }),
@@ -49841,7 +49841,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49881,7 +49881,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     addProductToCart: 'addProductToCart'
   }), {
     addItemToCart: function addItemToCart() {
-      console.log(this.product);
       this.addProductToCart(this.product);
     }
   })
