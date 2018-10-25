@@ -26627,9 +26627,13 @@ var removeFromCart = function removeFromCart(state, id) {
     return item.product.id === id;
   });
 
-  if (existing) {
+  if (existing.quantity > 1) {
     existing.quantity--;
-  } else {}
+  } else {
+    state.cart = state.cart.filter(function (item) {
+      return item.product_id !== id;
+    });
+  }
 };
 
 // append to cart
@@ -26657,42 +26661,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addProductToCart", function() { return addProductToCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeProductFromCart", function() { return removeProductFromCart; });
 var getProducts = function getProducts(_ref) {
-  var commit = _ref.commit;
+    var commit = _ref.commit;
 
-  return axios.get('http://192.168.2.73:8080/products').then(function (response) {
-    commit('setProducts', response.data);
-    return Promise.resolve();
-  });
+    return axios.get('http://192.168.2.73:8080/products').then(function (response) {
+        commit('setProducts', response.data);
+        return Promise.resolve();
+    });
 };
 
 var getCart = function getCart(_ref2) {
-  var commit = _ref2.commit;
+    var commit = _ref2.commit;
 
-  return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
-    commit('setCarts', response.data);
-    return Promise.resolve();
-  });
+    return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
+        commit('setCarts', response.data);
+        return Promise.resolve();
+    });
 };
 
-var addProductToCart = function addProductToCart(_ref3, id) {
-  var commit = _ref3.commit;
+var addProductToCart = function addProductToCart(_ref3, payload) {
+    var commit = _ref3.commit;
 
-  return axios.post('http://192.168.2.73:8080/api/cart', {
-    product_id: id
-  }).then(function (response) {
-    commit('appendCart', response.data);
-  }).catch(function (error) {
-    console.log(error);
-  });
+    return axios.post('http://192.168.2.73:8080/api/cart', {
+        product_id: payload.id
+    }).then(function (response) {
+        commit('appendCart', response.data);
+    }).catch(function (error) {
+        console.log(error);
+    });
 };
 
 // remove a product from our cart
 var removeProductFromCart = function removeProductFromCart(_ref4, payload) {
-  var commit = _ref4.commit;
+    var commit = _ref4.commit;
 
-  return axios.delete('http://192.168.2.73:8080/api/cart/' + payload.id).then(function (response) {
-    commit('removeFromCart', payload.id);
-  });
+    return axios.delete('http://192.168.2.73:8080/api/cart/' + payload.id).then(function (response) {
+        commit('removeFromCart', payload.id);
+    }).catch(function (error) {
+        console.log(error);
+    });
 };
 
 // remove all prodcuts from our cart
@@ -49822,7 +49828,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49862,6 +49868,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     addProductToCart: 'addProductToCart'
   }), {
     addItemToCart: function addItemToCart() {
+      console.log(this.product);
       this.addProductToCart(this.product);
     }
   })

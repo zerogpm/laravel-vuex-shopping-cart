@@ -13,9 +13,9 @@ export const getCart = ({commit}) => {
   })
 };
 
-export const addProductToCart = ({commit}, id) => {
+export const addProductToCart = ({commit}, payload) => {
   return axios.post('http://192.168.2.73:8080/api/cart', {
-    product_id : id
+    product_id : payload.id
   }).then((response) => {
       commit('appendCart', response.data);
   }).catch((error) => {
@@ -27,6 +27,8 @@ export const addProductToCart = ({commit}, id) => {
 export const removeProductFromCart = ({ commit }, payload) => {
   return axios.delete(`http://192.168.2.73:8080/api/cart/${payload.id}`).then((response) => {
      commit('removeFromCart', payload.id)
+  }).catch((error) => {
+      console.log(error)
   })
 };
 

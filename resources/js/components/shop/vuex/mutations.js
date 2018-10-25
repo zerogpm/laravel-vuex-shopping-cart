@@ -15,10 +15,12 @@ export const removeFromCart = (state, id) => {
       return item.product.id === id
     });
 
-    if (existing) {
+    if (existing.quantity > 1) {
       existing.quantity--
     } else {
-
+      state.cart = state.cart.filter((item) => {
+          return item.product_id !== id;
+      })
     }
 };
 
