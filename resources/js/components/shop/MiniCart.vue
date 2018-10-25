@@ -1,10 +1,10 @@
 <template>
     <div>
-        <ul class="list-group">
-            <li class="list-group-item mt-5">
+        <ul class="list-group" v-if="cart.length">
+            <li class="list-group-item mt-5" v-for="item in cart">
                 <div class="row">
                     <div class="col-lg-12">
-                        1 X Some item @ $22.2
+                        {{ item.quantity }} X {{ item.product.title }} @ ${{ item.product.price }}
                     </div>
                     <div class="col-lg-12">
                         <span class="badge badge-primary badge-pill"><a href="#" class="links">Remove</a></span>
@@ -15,10 +15,10 @@
                 <span class="badge badge-primary badge-pill"><a href="#" class="links">Clear</a></span>
             </li>
             <li class="list-group-item list-group-item-primary">
-                x item in cart ( $22.3 )
+                {{ cartCount }} item in cart ( ${{ cartTotalPrice }} )
             </li>
         </ul>
-        <p>No items in cart</p>
+        <p v-else>No items in cart</p>
     </div>
 </template>
 
@@ -29,6 +29,13 @@
     methods: {
       ...mapActions({
         getCart: 'getCart'
+      })
+    },
+    computed: {
+      ...mapGetters({
+        cart: 'cart',
+        cartCount: 'cartCount',
+        carTotalPrice: 'carTotalPrice'
       })
     },
     mounted() {
