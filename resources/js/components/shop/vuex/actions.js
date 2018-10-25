@@ -13,7 +13,7 @@ export const getCart = ({commit}) => {
   })
 };
 
-export const addProductToCart = ({commit}, { id }) => {
+export const addProductToCart = ({commit}, id) => {
   return axios.post('http://192.168.2.73:8080/api/cart', {
     product_id : id
   }).then((response) => {
@@ -24,5 +24,10 @@ export const addProductToCart = ({commit}, { id }) => {
 };
 
 // remove a product from our cart
+export const removeProductFromCart = ({ commit }, payload) => {
+  return axios.delete(`http://192.168.2.73:8080/api/cart/${payload.id}`).then((response) => {
+     commit('removeFromCart', payload.id)
+  })
+};
 
 // remove all prodcuts from our cart

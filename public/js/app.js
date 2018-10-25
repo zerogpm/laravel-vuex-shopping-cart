@@ -26608,6 +26608,7 @@ var cartTotalPrice = function cartTotalPrice(state) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCarts", function() { return setCarts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFromCart", function() { return removeFromCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendCart", function() { return appendCart; });
 var setProducts = function setProducts(state, products) {
   state.products = products;
@@ -26621,6 +26622,15 @@ var setCarts = function setCarts(state, cart) {
 // clear cart
 
 // remove from cart
+var removeFromCart = function removeFromCart(state, id) {
+  var existing = state.cart.find(function (item) {
+    return item.product.id === id;
+  });
+
+  if (existing) {
+    existing.quantity--;
+  } else {}
+};
 
 // append to cart
 var appendCart = function appendCart(state, cart) {
@@ -26645,38 +26655,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProducts", function() { return getProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCart", function() { return getCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addProductToCart", function() { return addProductToCart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeProductFromCart", function() { return removeProductFromCart; });
 var getProducts = function getProducts(_ref) {
-    var commit = _ref.commit;
+  var commit = _ref.commit;
 
-    return axios.get('http://192.168.2.73:8080/products').then(function (response) {
-        commit('setProducts', response.data);
-        return Promise.resolve();
-    });
+  return axios.get('http://192.168.2.73:8080/products').then(function (response) {
+    commit('setProducts', response.data);
+    return Promise.resolve();
+  });
 };
 
 var getCart = function getCart(_ref2) {
-    var commit = _ref2.commit;
+  var commit = _ref2.commit;
 
-    return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
-        commit('setCarts', response.data);
-        return Promise.resolve();
-    });
+  return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
+    commit('setCarts', response.data);
+    return Promise.resolve();
+  });
 };
 
-var addProductToCart = function addProductToCart(_ref3, _ref4) {
-    var commit = _ref3.commit;
-    var id = _ref4.id;
+var addProductToCart = function addProductToCart(_ref3, id) {
+  var commit = _ref3.commit;
 
-    return axios.post('http://192.168.2.73:8080/api/cart', {
-        product_id: id
-    }).then(function (response) {
-        commit('appendCart', response.data);
-    }).catch(function (error) {
-        console.log(error);
-    });
+  return axios.post('http://192.168.2.73:8080/api/cart', {
+    product_id: id
+  }).then(function (response) {
+    commit('appendCart', response.data);
+  }).catch(function (error) {
+    console.log(error);
+  });
 };
 
 // remove a product from our cart
+var removeProductFromCart = function removeProductFromCart(_ref4, payload) {
+  var commit = _ref4.commit;
+
+  return axios.delete('http://192.168.2.73:8080/api/cart/' + payload.id).then(function (response) {
+    commit('removeFromCart', payload.id);
+  });
+};
 
 // remove all prodcuts from our cart
 
@@ -50033,8 +50050,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MiniCart",
   methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
-    getCart: 'getCart'
-  })),
+    getCart: 'getCart',
+    removeProductFromCart: 'removeProductFromCart'
+  }), {
+    removeProduct: function removeProduct(id) {
+      this.removeProductFromCart({ id: id });
+    }
+  }),
   computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])({
     cart: 'cart',
     cartCount: 'cartCount',
@@ -50074,12 +50096,33 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(0, true)
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c(
+                      "span",
+                      { staticClass: "badge badge-primary badge-pill" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "links",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.removeProduct(item.product.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Remove")]
+                        )
+                      ]
+                    )
+                  ])
                 ])
               ])
             }),
             _vm._v(" "),
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "li",
@@ -50101,18 +50144,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("span", { staticClass: "badge badge-primary badge-pill" }, [
-        _c("a", { staticClass: "links", attrs: { href: "#" } }, [
-          _vm._v("Remove")
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

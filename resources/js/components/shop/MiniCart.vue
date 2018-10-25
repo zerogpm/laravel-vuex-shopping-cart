@@ -7,7 +7,7 @@
                         {{ item.quantity }} X {{ item.product.title }} @ ${{ item.product.price }}
                     </div>
                     <div class="col-lg-12">
-                        <span class="badge badge-primary badge-pill"><a href="#" class="links">Remove</a></span>
+                        <span class="badge badge-primary badge-pill"><a href="#" class="links" @click.prevent="removeProduct(item.product.id)">Remove</a></span>
                     </div>
                 </div>
             </li>
@@ -28,8 +28,12 @@
     name: "MiniCart",
     methods: {
       ...mapActions({
-        getCart: 'getCart'
-      })
+        getCart: 'getCart',
+        removeProductFromCart: 'removeProductFromCart'
+      }),
+      removeProduct(id) {
+        this.removeProductFromCart({ id })
+      }
     },
     computed: {
       ...mapGetters({

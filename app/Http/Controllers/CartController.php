@@ -30,4 +30,16 @@ class CartController extends Controller
             'product' => $item->product
         ]);
     }
+
+    public function destroy($productId)
+    {
+        $item = Cart::where('product_id', $productId)->first();
+        $item->decrement('quantity');
+
+        if ($item->quantity === 0) {
+            $item->delete();
+        }
+
+        return response(null, 200);
+    }
 }
