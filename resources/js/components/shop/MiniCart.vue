@@ -35,7 +35,7 @@
       ...mapGetters({
         cart: 'cart',
         cartCount: 'cartCount',
-        carTotalPrice: 'carTotalPrice'
+        cartTotalPrice: 'cartTotalPrice'
       })
     },
     mounted() {

@@ -26608,13 +26608,14 @@ var cartTotalPrice = function cartTotalPrice(state) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setProducts", function() { return setProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCarts", function() { return setCarts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendCart", function() { return appendCart; });
 var setProducts = function setProducts(state, products) {
-    state.products = products;
+  state.products = products;
 };
 
 // set cart
 var setCarts = function setCarts(state, cart) {
-    state.cart = cart;
+  state.cart = cart;
 };
 
 // clear cart
@@ -26622,6 +26623,18 @@ var setCarts = function setCarts(state, cart) {
 // remove from cart
 
 // append to cart
+var appendCart = function appendCart(state, cart) {
+
+  var existing = state.cart.find(function (item) {
+    return item.product.id === cart.product.id;
+  });
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    state.cart.push(cart);
+  }
+};
 
 /***/ }),
 /* 25 */
@@ -26641,7 +26654,6 @@ var getProducts = function getProducts(_ref) {
     });
 };
 
-// Get cart
 var getCart = function getCart(_ref2) {
     var commit = _ref2.commit;
 
@@ -26658,7 +26670,7 @@ var addProductToCart = function addProductToCart(_ref3, _ref4) {
     return axios.post('http://192.168.2.73:8080/api/cart', {
         product_id: id
     }).then(function (response) {
-        console.log(response);
+        commit('appendCart', response.data);
     }).catch(function (error) {
         console.log(error);
     });
@@ -50026,7 +50038,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])({
     cart: 'cart',
     cartCount: 'cartCount',
-    carTotalPrice: 'carTotalPrice'
+    cartTotalPrice: 'cartTotalPrice'
   })),
   mounted: function mounted() {
     this.getCart();

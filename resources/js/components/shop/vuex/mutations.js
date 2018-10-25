@@ -12,3 +12,15 @@ export const setCarts = (state, cart) => {
 // remove from cart
 
 // append to cart
+export const appendCart = (state, cart) => {
+
+    const existing = state.cart.find((item) => {
+      return item.product.id === cart.product.id
+    });
+
+    if (existing) {
+      existing.quantity++
+    } else {
+      state.cart.push(cart)
+    }
+}
