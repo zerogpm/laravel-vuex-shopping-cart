@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="form-group mx-2">
-                    <input type="checkbox" class="form-check-input" id="letter">
+                    <input type="checkbox" class="form-check-input" id="letter" @change="titleCheck">
                     <label class="form-check-label" for="letter">Sort by letter</label>
                 </div>
             </form>
@@ -22,12 +22,14 @@
     name: "Sort",
     data() {
       return {
-        priceChecked: false
+        priceChecked: false,
+        titleChecked: false
       }
     },
     methods: {
       ...mapMutations({
-        sortByPrice: 'sortByPrice'
+        sortByPrice: 'sortByPrice',
+        sortByTitle: 'sortByTitle'
       }),
       priceCheck () {
         this.priceChecked = !this.priceChecked;
@@ -36,6 +38,14 @@
         } else {
             this.sortByPrice(this.priceChecked);
         }
+      },
+      titleCheck () {
+          this.titleChecked = !this.titleChecked;
+          if(this.titleChecked) {
+              this.sortByTitle(this.titleChecked);
+          } else {
+              this.sortByTitle(this.titleChecked);
+          }
       }
     }
   }

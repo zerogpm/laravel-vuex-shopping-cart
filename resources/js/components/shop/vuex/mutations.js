@@ -1,6 +1,7 @@
 export const setProducts = (state, products) => {
-    state.products = products
+    state.products = products;
     state.oldProductsOrder = products.slice()
+    state.titleOrder = products.slice()
 }
 
 // set cart
@@ -53,3 +54,22 @@ export const sortByPrice = (state, checked) => {
     }
 
 };
+
+export const sortByTitle = (state, checked) => {
+
+    if (checked) {
+        state.products = state.products.sort((a, b) => {
+            if (a.title.toUpperCase() < b.title.toUpperCase())
+            {
+                return -1
+            }
+            if (a.title.toUpperCase() > b.title.toUpperCase()) {
+                return 1
+            }
+            return 0
+        })
+    } else {
+        state.products = state.titleOrder.slice()
+    }
+
+}

@@ -26568,7 +26568,8 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* harmony default export */ __webpack_exports__["a"] = ({
     products: [],
     cart: [],
-    oldProductsOrder: []
+    oldProductsOrder: [],
+    titleOrder: []
 });
 
 /***/ }),
@@ -26614,9 +26615,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFromCart", function() { return removeFromCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendCart", function() { return appendCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByPrice", function() { return sortByPrice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByTitle", function() { return sortByTitle; });
 var setProducts = function setProducts(state, products) {
     state.products = products;
     state.oldProductsOrder = products.slice();
+    state.titleOrder = products.slice();
 };
 
 // set cart
@@ -26666,6 +26669,23 @@ var sortByPrice = function sortByPrice(state, checked) {
         });
     } else {
         state.products = state.oldProductsOrder.slice();
+    }
+};
+
+var sortByTitle = function sortByTitle(state, checked) {
+
+    if (checked) {
+        state.products = state.products.sort(function (a, b) {
+            if (a.title.toUpperCase() < b.title.toUpperCase()) {
+                return -1;
+            }
+            if (a.title.toUpperCase() > b.title.toUpperCase()) {
+                return 1;
+            }
+            return 0;
+        });
+    } else {
+        state.products = state.titleOrder.slice();
     }
 };
 
@@ -50320,7 +50340,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50358,12 +50378,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   name: "Sort",
   data: function data() {
     return {
-      priceChecked: false
+      priceChecked: false,
+      titleChecked: false
     };
   },
 
   methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["d" /* mapMutations */])({
-    sortByPrice: 'sortByPrice'
+    sortByPrice: 'sortByPrice',
+    sortByTitle: 'sortByTitle'
   }), {
     priceCheck: function priceCheck() {
       this.priceChecked = !this.priceChecked;
@@ -50371,6 +50393,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         this.sortByPrice(this.priceChecked);
       } else {
         this.sortByPrice(this.priceChecked);
+      }
+    },
+    titleCheck: function titleCheck() {
+      this.titleChecked = !this.titleChecked;
+      if (this.titleChecked) {
+        this.sortByTitle(this.titleChecked);
+      } else {
+        this.sortByTitle(this.titleChecked);
       }
     }
   })
@@ -50401,30 +50431,24 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "form-group mx-2" }, [
+          _c("input", {
+            staticClass: "form-check-input",
+            attrs: { type: "checkbox", id: "letter" },
+            on: { change: _vm.titleCheck }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "letter" } },
+            [_vm._v("Sort by letter")]
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group mx-2" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: { type: "checkbox", id: "letter" }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "letter" } },
-        [_vm._v("Sort by letter")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
