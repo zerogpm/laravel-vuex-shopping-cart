@@ -7,9 +7,13 @@
 </template>
 
 <script>
+    import number from './Number'
     import { mapGetters } from 'vuex'
     export default {
         name: "Sum",
+        components: {
+          number
+        },
         computed: {
           ...mapGetters({
             sum: 'sum',

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2">
-                <mini-cart></mini-cart>
+                <app-mini-cart></app-mini-cart>
             </div>
 
             <div class="col-lg-10">
@@ -17,8 +17,16 @@
 </template>
 
 <script>
+  import sort from './Sort'
+  import products from './products'
+  import miniCart from './MiniCart'
   export default {
-    name: "Shopping"
+    name: "Shopping",
+    components: {
+      products,
+      sort,
+      appMiniCart: miniCart
+    }
   }
 </script>
 

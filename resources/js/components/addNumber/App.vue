@@ -7,8 +7,12 @@
 </template>
 
 <script>
+    import sum from './Sum'
     export default {
         name: 'app',
+        components: {
+          sum
+        }
     }
 </script>
 

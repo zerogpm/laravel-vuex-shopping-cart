@@ -18,13 +18,6 @@ window.Vue = require('vue');
 
 Vue.component('app', require('./components/addNumber/App'));
 Vue.component('shopping', require('./components/shop/Shopping'));
-Vue.component('sum', require('./components/addNumber/Sum'));
-Vue.component('number', require('./components/addNumber/Number'));
-Vue.component('add-number', require('./components/addNumber/AddNumber'));
-Vue.component('products', require('./components/shop/products'));
-Vue.component('product', require('./components/shop/product'));
-Vue.component('mini-cart', require('./components/shop/MiniCart'));
-Vue.component('sort', require('./components/shop/Sort'));
 
 const app = new Vue({
     el: '#app',

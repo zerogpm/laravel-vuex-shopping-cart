@@ -5,9 +5,13 @@
 </template>
 
 <script>
+  import product from './product'
   import { mapActions, mapGetters } from 'vuex'
   export default {
     name: "products",
+    components: {
+      product
+    },
     computed: {
       ...mapGetters({
           products: 'products'
