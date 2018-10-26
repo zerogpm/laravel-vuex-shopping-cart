@@ -1,5 +1,6 @@
 export const setProducts = (state, products) => {
     state.products = products
+    state.oldProductsOrder = products.slice()
 }
 
 // set cart
@@ -39,4 +40,16 @@ export const appendCart = (state, cart) => {
     } else {
       state.cart.push(cart)
     }
-}
+};
+
+export const sortByPrice = (state, checked) => {
+
+    if (checked) {
+        state.products = state.products.sort((a, b) => {
+            return a.price - b.price
+        })
+    } else {
+        state.products = state.oldProductsOrder.slice()
+    }
+
+};

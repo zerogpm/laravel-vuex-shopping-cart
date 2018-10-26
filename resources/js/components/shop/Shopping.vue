@@ -9,6 +9,10 @@
                 <products></products>
             </div>
         </div>
+
+        <hr>
+
+        <sort></sort>
     </div>
 </template>
 

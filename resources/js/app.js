@@ -24,6 +24,7 @@ Vue.component('add-number', require('./components/addNumber/AddNumber'));
 Vue.component('products', require('./components/shop/products'));
 Vue.component('product', require('./components/shop/product'));
 Vue.component('mini-cart', require('./components/shop/MiniCart'));
+Vue.component('sort', require('./components/shop/Sort'));
 
 const app = new Vue({
     el: '#app',
