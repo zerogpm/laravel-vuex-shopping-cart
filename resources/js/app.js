@@ -18,6 +18,7 @@ window.Vue = require('vue');
 
 Vue.component('app', require('./components/addNumber/App'));
 Vue.component('shopping', require('./components/shop/Shopping'));
+Vue.component('pagnation', require('./components/pagnation/Pagnation'));
 
 const app = new Vue({
     el: '#app',

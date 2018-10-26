@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/cart', 'CartController@store');
 Route::get('/cart', 'CartController@index');
+Route::get('/question', 'QuestionController@index');
 Route::delete('/cart', 'CartController@deleteAll');
 Route::delete('/cart/{productId}', 'CartController@destroy');
