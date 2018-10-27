@@ -5,9 +5,22 @@
                 <a class="page-link" @click.prevent="switched(meta.current_page - 1)" href="#"
                    tabindex="-1">Previous</a>
             </li>
+
+            <li class="page-item" v-if="section > 1">
+                <a class="page-link" @click.prevent="switched(1)" href="#"
+                   tabindex="-1">1</a>
+            </li>
+
+
             <li class="page-item" :class="{ 'active': meta.current_page === page }" v-for="page in pages">
                 <a class="page-link" href="#" @click.prevent="switched(page)">{{ page }}</a>
             </li>
+
+            <li class="page-item" v-if="section < sections">
+                <a class="page-link" @click.prevent="switched(meta.last_page)" href="#"
+                   tabindex="-1">{{ meta.last_page }}</a>
+            </li>
+
             <li class="page-item" :class="{ 'disabled': meta.current_page === meta.last_page }">
                 <a class="page-link" @click.prevent="switched(meta.current_page + 1)" href="#">Next</a>
             </li>

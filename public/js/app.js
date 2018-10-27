@@ -50868,7 +50868,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50879,6 +50879,19 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50977,6 +50990,25 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
+        _vm.section > 1
+          ? _c("li", { staticClass: "page-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#", tabindex: "-1" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.switched(1)
+                    }
+                  }
+                },
+                [_vm._v("1")]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _vm._l(_vm.pages, function(page) {
           return _c(
             "li",
@@ -51002,6 +51034,25 @@ var render = function() {
             ]
           )
         }),
+        _vm._v(" "),
+        _vm.section < _vm.sections
+          ? _c("li", { staticClass: "page-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#", tabindex: "-1" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.switched(_vm.meta.last_page)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(_vm.meta.last_page))]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "li",
