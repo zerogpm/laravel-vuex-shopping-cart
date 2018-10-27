@@ -26695,54 +26695,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeProductFromCart", function() { return removeProductFromCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeAllProducts", function() { return removeAllProducts; });
 var getProducts = function getProducts(_ref) {
-    var commit = _ref.commit;
+  var commit = _ref.commit;
 
-    return axios.get('http://192.168.2.73:8080/products').then(function (response) {
-        commit('setProducts', response.data);
-        return Promise.resolve();
-    });
+  return axios.get('http://192.168.2.73:8080/products').then(function (response) {
+    commit('setProducts', response.data);
+    return Promise.resolve();
+  });
 };
 
 var getCart = function getCart(_ref2) {
-    var commit = _ref2.commit;
+  var commit = _ref2.commit;
 
-    return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
-        commit('setCarts', response.data);
-        return Promise.resolve();
-    });
+  return axios.get('http://192.168.2.73:8080/api/cart').then(function (response) {
+    commit('setCarts', response.data);
+    return Promise.resolve();
+  });
 };
 
 var addProductToCart = function addProductToCart(_ref3, payload) {
-    var commit = _ref3.commit;
+  var commit = _ref3.commit;
 
-    return axios.post('http://192.168.2.73:8080/api/cart', {
-        product_id: payload.id
-    }).then(function (response) {
-        commit('appendCart', response.data);
-    }).catch(function (error) {
-        console.log(error);
-    });
+  return axios.post('http://192.168.2.73:8080/api/cart', {
+    product_id: payload.id
+  }).then(function (response) {
+    commit('appendCart', response.data);
+  }).catch(function (error) {
+    console.log(error);
+  });
 };
 
 var removeProductFromCart = function removeProductFromCart(_ref4, payload) {
-    var commit = _ref4.commit;
+  var commit = _ref4.commit;
 
-    return axios.delete('http://192.168.2.73:8080/api/cart/' + payload.id).then(function (response) {
-        commit('removeFromCart', payload.id);
-    }).catch(function (error) {
-        console.log(error);
-    });
+  return axios.delete('http://192.168.2.73:8080/api/cart/' + payload.id).then(function (response) {
+    commit('removeFromCart', payload.id);
+  }).catch(function (error) {
+    console.log(error);
+  });
 };
 
 // remove all prodcuts from our cart
 var removeAllProducts = function removeAllProducts(_ref5) {
-    var commit = _ref5.commit;
+  var commit = _ref5.commit;
 
-    axios.delete('http://192.168.2.73:8080/api/cart').then(function (response) {
-        commit('removeAllProductsFromCart');
-    }).catch(function (error) {
-        console.log(error);
-    });
+  axios.delete('http://192.168.2.73:8080/api/cart').then(function (response) {
+    commit('removeAllProductsFromCart');
+  }).catch(function (error) {
+    console.log(error);
+  });
 };
 
 /***/ }),
@@ -50868,7 +50868,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50895,10 +50895,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Pagination",
   props: ['meta'],
+  data: function data() {
+    return {
+      numbersPerSection: 7
+    };
+  },
+
+  computed: {
+    sections: function sections() {
+      return Math.ceil(this.meta.last_page / this.numbersPerSection);
+    },
+    section: function section() {
+      return Math.ceil(this.meta.current_page / this.numbersPerSection);
+    },
+    pages: function pages() {
+      return _.range((this.section - 1) * this.numbersPerSection + 1, this.lastPage + 1);
+    },
+    lastPage: function lastPage() {
+      var lastPage = (this.section - 1) * this.numbersPerSection + this.numbersPerSection;
+
+      if (this.section === this.sections) {
+        lastPage = this.meta.last_page;
+      }
+
+      return lastPage;
+    }
+  },
   methods: {
     switched: function switched(page) {
       if (page <= 0 || page > this.meta.last_page) {
@@ -50947,7 +50977,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._l(_vm.meta.last_page, function(page) {
+        _vm._l(_vm.pages, function(page) {
           return _c(
             "li",
             {
@@ -50998,7 +51028,13 @@ var render = function() {
         )
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _c("p", [_vm._v("sections: " + _vm._s(_vm.sections))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("section: " + _vm._s(_vm.section))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("last page: " + _vm._s(_vm.lastPage))])
   ])
 }
 var staticRenderFns = []
