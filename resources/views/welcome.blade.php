@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="app">
-            <pagnation></pagnation>
+            <question-post></question-post>
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
