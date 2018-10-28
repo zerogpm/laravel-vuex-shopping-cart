@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\QuestionCollection;
 use App\Question;
 
-
 class QuestionController extends Controller
 {
     public function index()

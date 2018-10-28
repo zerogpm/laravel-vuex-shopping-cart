@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Question;
+use App\User;
 
 class QuestionTableSeeder extends Seeder
 {
@@ -12,6 +13,10 @@ class QuestionTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Question::class, 50)->create();
+        factory(User::class, 3)->create()->each(function ($user) {
+            $user->questions()->saveMany(
+                factory(Question::class, rand(1, 50))->make()
+            );
+        });
     }
 }
