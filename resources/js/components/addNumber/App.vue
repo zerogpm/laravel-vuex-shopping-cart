@@ -7,13 +7,14 @@
 </template>
 
 <script>
-    import sum from './Sum'
-    export default {
-        name: 'app',
-        components: {
-          sum
-        }
+  import sum from './Sum'
+
+  export default {
+    name: 'app',
+    components: {
+      sum
     }
+  }
 </script>
 
 <style lang="scss" scoped>

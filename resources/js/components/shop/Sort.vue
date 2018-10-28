@@ -17,7 +17,8 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import {mapMutations} from 'vuex'
+
   export default {
     name: "Sort",
     data() {
@@ -31,21 +32,21 @@
         sortByPrice: 'sortByPrice',
         sortByTitle: 'sortByTitle'
       }),
-      priceCheck () {
+      priceCheck() {
         this.priceChecked = !this.priceChecked;
-        if(this.priceChecked) {
-            this.sortByPrice(this.priceChecked);
+        if (this.priceChecked) {
+          this.sortByPrice(this.priceChecked);
         } else {
-            this.sortByPrice(this.priceChecked);
+          this.sortByPrice(this.priceChecked);
         }
       },
-      titleCheck () {
-          this.titleChecked = !this.titleChecked;
-          if(this.titleChecked) {
-              this.sortByTitle(this.titleChecked);
-          } else {
-              this.sortByTitle(this.titleChecked);
-          }
+      titleCheck() {
+        this.titleChecked = !this.titleChecked;
+        if (this.titleChecked) {
+          this.sortByTitle(this.titleChecked);
+        } else {
+          this.sortByTitle(this.titleChecked);
+        }
       }
     }
   }

@@ -10,15 +10,16 @@
 
 <script>
   import addNumber from './AddNumber'
+
   export default {
     name: "Number",
     components: {
       addNumber
     },
     computed: {
-        numbers() {
-            return this.$store.getters.numbers;
-        }
+      numbers() {
+        return this.$store.getters.numbers;
+      }
     }
   }
 </script>

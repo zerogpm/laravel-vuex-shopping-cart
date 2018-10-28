@@ -5,17 +5,18 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import {mapActions} from 'vuex'
+
   export default {
     name: "AddNumber",
     methods: {
       ...mapActions({
-          fetchNumber : 'fetchNumber'
+        fetchNumber: 'fetchNumber'
       }),
-      add () {
+      add() {
         this.fetchNumber({
-            min: 1,
-            max: 100
+          min: 1,
+          max: 100
         })
       }
     }

@@ -49010,11 +49010,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
-    components: {
-        sum: __WEBPACK_IMPORTED_MODULE_0__Sum___default.a
-    }
+  name: 'app',
+  components: {
+    sum: __WEBPACK_IMPORTED_MODULE_0__Sum___default.a
+  }
 });
 
 /***/ }),
@@ -49103,7 +49104,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49127,6 +49128,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+
 
 
 
@@ -49227,7 +49229,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49250,6 +49252,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49350,7 +49353,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49370,6 +49373,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49733,7 +49737,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49765,6 +49769,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50567,7 +50572,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50589,6 +50594,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -50868,7 +50874,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50879,6 +50885,19 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50949,6 +50968,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
 
       this.$emit('pagination:switched', page);
+    },
+    goBackASection: function goBackASection() {
+      this.switched(this.firstPageOfSection(this.section - 1));
+    },
+    goForwardASection: function goForwardASection() {
+      this.switched(this.firstPageOfSection(this.section + 1));
+    },
+    firstPageOfSection: function firstPageOfSection(section) {
+      return (section - 1) * this.numbersPerSection + 1;
     }
   }
 });
@@ -50991,22 +51019,41 @@ var render = function() {
         ),
         _vm._v(" "),
         _vm.section > 1
-          ? _c("li", { staticClass: "page-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "page-link",
-                  attrs: { href: "#", tabindex: "-1" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.switched(1)
+          ? [
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", tabindex: "-1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.switched(1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("1")]
-              )
-            ])
+                  },
+                  [_vm._v("1")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", tabindex: "-1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.goBackASection($event)
+                      }
+                    }
+                  },
+                  [_vm._v("...")]
+                )
+              ])
+            ]
           : _vm._e(),
         _vm._v(" "),
         _vm._l(_vm.pages, function(page) {
@@ -51036,22 +51083,41 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.section < _vm.sections
-          ? _c("li", { staticClass: "page-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "page-link",
-                  attrs: { href: "#", tabindex: "-1" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.switched(_vm.meta.last_page)
+          ? [
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", tabindex: "-1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.goForwardASection($event)
+                      }
                     }
-                  }
-                },
-                [_vm._v(_vm._s(_vm.meta.last_page))]
-              )
-            ])
+                  },
+                  [_vm._v("...")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", tabindex: "-1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.switched(_vm.meta.last_page)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.meta.last_page))]
+                )
+              ])
+            ]
           : _vm._e(),
         _vm._v(" "),
         _c(
